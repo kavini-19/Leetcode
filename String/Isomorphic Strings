@@ -1,0 +1,26 @@
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        if(s.length()!=t.length()){
+            return false;
+        }
+        HashMap<Character,Character>map=new HashMap<>();
+        HashSet<Character>set=new HashSet<>();
+        for(int i =0;i<s.length();i++){
+        char one=s.charAt(i);
+        char two = t.charAt(i);
+        if(map.containsKey(one)){
+            if(map.get(one)!=two){
+                return false;
+            }
+        }
+            else{
+                if(set.contains(two)){
+                    return false;
+                }
+                map.put(one,two);
+                set.add(two);
+            }
+        }
+        return true;
+    }
+}
